@@ -1,0 +1,7 @@
+{
+  "name": "Node-Java-Docker",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "node --version && java -version"
+}
