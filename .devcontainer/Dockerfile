@@ -1,10 +1,10 @@
+# Base image from Microsoft's Dev Container collection
 FROM mcr.microsoft.com/devcontainers/base:ubuntu
 
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs
+# Update and install OpenJDK 17
+RUN apt-get update && \
+    apt-get install -y openjdk-17-jdk && \
+    apt-get clean
 
-RUN apt-get update && apt-get install -y openjdk-17-jdk
-
-RUN apt-get install -y docker.io
-
-RUN node --version && java -version
+# Verify Java installation
+RUN java -version
